@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>	Montreal Bakery Store</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+    <style>
+        body {
+            background: hsla(286, 48%, 91%, 1);
+            background: linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+            background: -moz-linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+            background: -webkit-linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#EEDDF3", endColorstr="#B4828B", GradientType=1);
+        }
+    </style> 
+		<script src="script.js"></script>
+		<link rel="stylesheet" href="style.css">
+		
+	</head>
+	<body>
+		<header>
+			<div class="row">
+				<div class="container head-row">
+					<h1 class="logo">Montreal <span style="color:brown;font-size: 40px;">Bakery</span> Store</h1>
+					<ul class="menu">
+						<li class=""><a href="index.html">Home</a></li>
+						<li><a href="about.html">About</a></li>
+					
+					 
+						<li><a href="login.html"><button>Customer</button></a></li>
+						<li><a href="adminlogin.html"><button>Admin</button></a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		<div class="row">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-md-4">
+
+					</div>
+					<div class="col-md-4">
+						<h2 class="page-heading" style="color: white;">Customer Register</h2>
+						<div style="text-align:left">	 
+							<div class="form-group">
+								<label>Firstname</label>
+								<input type="text" class="form-control" id="fname"  />
+							</div>
+		
+							<div class="form-group">
+								<label>Email</label>
+								<input type="email" class="form-control" id="email" />
+							</div>
+		
+							<div class="form-group">
+								<label>Password</label>
+								<input type="password" class="form-control" id="pass" />
+							</div>
+		
+							<div class="form-group">
+								<label>Re-enter Password</label>
+								<input type="password" class="form-control" id="rpass" />
+							</div>
+		
+							<div class="form-group">
+								<label>Address</label>
+								<input type="text" class="form-control" id="address" />
+							</div>
+		
+							<div class="form-group">
+								<label>Phone Number</label>
+								<input type="text" class="form-control" id="phone" />
+							</div>
+							
+							<div style="margin-bottom:10px;">
+						
+								<button type="submit" id="btn_customer_register">Register</button>
+								<a href="login.html"><button type="button">Login</button>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+		
+		$('#btn_customer_register').click(() => { 	
+
+			var fname = ($('#fname').val());
+			var email =($('#email').val());
+			var pass = $('#pass').val();
+			var address = ($('#address').val());
+			var phone =($('#phone').val());
+						
+			var data = {	
+						"fname" : fname,		
+						"email"   : email,	
+						"pass" : pass,	
+						"address"   : address,							
+						"phone" : phone								
+					};
+					
+					$.post('http://localhost:3000/register', data, (res) => { 
+					
+						if(res != undefined && res.status == 200)
+						{
+						alert("Successfully Registered");
+						// window.location.href = "index.html";
+						}
+						else{
+						alert("Registration Failed. Contact Administrator.");
+						}
+					
+					});
+
+			});
+		  </script>
+	</body>
+</html>
+
