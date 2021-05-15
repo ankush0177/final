@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title> Montreal Bakery Store</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+	<style>
+		body {
+			background: hsla(286, 48%, 91%, 1);
+			background: linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+			background: -moz-linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+			background: -webkit-linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+			filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#EEDDF3", endColorstr="#B4828B", GradientType=1);
+		}
+	</style>
+	<link rel="stylesheet" href="style.css" />
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap.min.js"></script>
+	<script src="script.js"></script>
+	<style>
+		.row {
+			margin-right: 0;
+			margin-left: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<div class="row">
+			<div class="container head-row">
+				<h1 class="logo">Montreal <span style="color:brown;font-size: 40px;">Bakery</span> Store</h1>
+				<ul class="menu">
+					<li><a href="adminhome.html">Home</a></li>
+					<li><a href="customers.html">Customers</a></li>
+					<li><a href="inventory.html">Inventory</a></li>
+					<li><a href="bookings.html">Orders</a></li>
+					<li><a href="getfeedbacks.html"><button>Help</button></a></li>
+					<li><a href="index.html">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+		
+
+        <!-- SELECT `id`, `email`, `pass`, `role`, `name`, `address`, `phone_no`, `license` FROM `user` WHERE 1 -->
+		<div class="row">
+			<div class="container" style="padding-top: 50px;height: 700px;">
+				<h2 class="page-heading" style="color: white;">Customers Queries</h2>
+				<div class="col-sm-10 col-sm-offset-1">
+					<table id="inventory" class="table table-striped table-bordered" style="width:100%">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Name</th>
+								<th>Email</th>
+								<th>Message</th>
+								
+								
+							</tr>
+						</thead>
+						
+						 <tbody id="customerFeedData">
+						 </tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+					$.get('http://localhost:3000/fetchHelp', (res) => {
+						var tableRows = "";
+						$.each(res.data, function(key, value) {
+							var row = "<tr>" +
+								"<td> " + value.hid + "</td>" +
+							
+								"<td>" + value.cname + " </td>" +
+								"<td> " + value.cemail + "</td>" +
+								"<td> " + value.cmsg + "</td>" 
+                                
+                                ;
+							
+	
+							tableRows = tableRows + row;
+						});
+	
+						setTimeout(function() {
+							$("#customerFeedData").append(tableRows);
+	
+						}, 500);
+					});
+				});
+	
+	
+	
+			 
+		  </script>
+	</body>
+</html>
+
