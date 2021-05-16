@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Montreal Bakery Store</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+
+
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.js"></script>
+    <style>
+        body {
+            background: hsla(286, 48%, 91%, 1);
+            background: linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+            background: -moz-linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+            background: -webkit-linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#EEDDF3", endColorstr="#B4828B", GradientType=1);
+        }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap.min.js"></script>
+    <script src="script.js"></script>
+
+    <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" rel="Stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <style>
+        .row {
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        .jumbotron {
+            padding-top: 18px;
+            padding-bottom: 18px;
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+
+        .container .jumbotron {
+            padding-right: 20px;
+            padding-left: 30px;
+        }
+
+        td {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="row">
+            <div class="container head-row">
+                <h1 class="logo">Montreal <span style="color:brown;font-size: 40px;">Bakery</span> Store</h1>
+                <ul class="menu">
+                    <li class=""><a href="home.html">Home</a></li>
+                    <li><a href="#">Galleries</a></li>
+                    <li><a href="#">My Orders</a></li>
+                    <li><a href="help.html">Help</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="container" style="padding-top: 20px;height: 700px;">
+
+        <div class="row">
+            <div class="container">
+                <h2 class="page-heading" style="color: white;">Cart Items<br />
+
+
+                </h2>
+
+                <div class="col-sm-10 col-sm-offset-1">
+
+                    <table>
+                        <tr style="padding: 10px;">
+                            <td>
+                                <img src="images/1.jpg" id="images" style="width: 300px;" />
+                            </td>
+                            <td style="padding: 10px;">
+                                <table align="center">
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <label>Category</label>
+                                                <select class="form-control" id="category">
+                                                    <option>Birthdays</option>
+                                                    <option>Weddings</option>
+                                                    <option>Festivals</option>
+                                                    <option>Anniversaries</option>
+                                                    <option>New Year</option>
+                                                    <option>Cup Cakes</option>
+                                                    <option>Crossaints</option>
+                                                </select>
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label>Flavour</label>
+                                                <select class="form-control" id="flavour">
+                                                    <option>vanila</option>
+                                                    <option>Dark Choclate</option>
+                                                    <option>Black Forest</option>
+                                                    <option>Red Velvet</option>
+                                                    <option>New Year</option>
+                                                    <option>Black Current</option>
+                                                    <option>Ice Cream</option>
+                                                </select>
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label>Color</label>
+                                                <select class="form-control" id="color">
+                                                    <option>White</option>
+                                                    <option>Red</option>
+                                                    <option>Black</option>
+                                                    <option>Choclate</option>
+                                                    <option>Orange</option>
+                                                    <option>Pink</option>
+                                                    <option>Blue</option>
+                                                </select>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <label>Size</label>
+                                                <select class="form-control" id="size">
+                                                    <option>10 Inc</option>
+                                                    <option>20 Inc</option>
+                                                    <option>30 Inc</option>
+                                                    <option>40 Inc</option>
+                                                    <option>50 Inc</option>
+                                                    <option>100 Inc</option>
+
+                                                </select>
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label>KG</label>
+                                                <select class="form-control" id="kg">
+                                                    <option>1/2 Kg</option>
+                                                    <option>1 Kg</option>
+                                                    <option>2 Kg</option>
+                                                    <option>3 Kg</option>
+                                                    <option>4 Kg</option>
+                                                    <option>5 Kg</option>
+                                                    <option>10 Kg</option>
+                                                </select>
+
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label>Toppings</label>
+                                                <select class="form-control" id="toppings">
+                                                    <option>Strawberry</option>
+                                                    <option>Jelly Beans</option>
+                                                    <option>Nuts</option>
+                                                    <option>Pine Apple</option>
+                                                    <option>Choclate Bytes</option>
+
+                                                </select>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <label>Price</label>
+                                                <input type="text" id="price" readonly>
+
+                                            </div>
+
+
+
+                                            <div class="form-group" hidden>
+                                                <label>Descriptiom</label>
+                                                <textarea id="description" class="form-control">
+
+                                                    </textarea>
+                                                <!-- <input type="text" > -->
+
+                                            </div>
+
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-group">
+                                                <label>Date</label>
+
+                                                <input type="text" id="txtdate" class="form-control"
+                                                    autocomplete="off">
+
+                                               
+                                                    
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label>Time</label>
+                                                <select class="form-control" id="tim">
+                                                    <option>10AM</option>
+                                                    <option>11AM</option>
+                                                    <option>12PM</option>
+                                                    <option>1AM</option>
+                                                    <option>2PM</option>
+
+                                                </select>
+                                             
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <label>Quantity</label>
+                                                <select class="form-control" id="quantity">
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+
+                                                </select>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Total Amount :  <input type="text" id="price1" readonly>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="margin-bottom:10px;">
+                                                <button type="submit" id="btn_editCake">Payment Now</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script type="text/javascript">
+        $.get('http://localhost:3000/fetchCakes/' + getUrlVars()["id"], (res) => {
+            $('#category').val(res.data[0].category);
+            $('#flavour').val(res.data[0].flavour);
+            $('#color').val(res.data[0].color);
+            $('#size').val(res.data[0].size);
+            $('#kg').val(res.data[0].kg);
+            $('#toppings').val(res.data[0].toppings);
+            $('#price').val(res.data[0].price);
+            $('#price1').val(res.data[0].price);
+            $('#description').val(res.data[0].description);
+
+        });
+
+
+  
+
+        $('#quantity').change(function () {
+            var q = $(this).val();
+            var p = $('#price').val();
+            $('#price1').val(p*q);
+           // alert(p*q);
+        });
+
+
+        function getUrlVars() {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        }
+
+        $(document).ready(function() {
+            $("#txtdate").datepicker({
+                minDate: 0
+            });
+        });
+
+      
+
+    </script>
+
+</body>
+
+</html>

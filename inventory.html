@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title> Montreal Bakery Store</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+	<style>
+		body {
+			background: hsla(286, 48%, 91%, 1);
+			background: linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+			background: -moz-linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+			background: -webkit-linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+			filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#EEDDF3", endColorstr="#B4828B", GradientType=1);
+		}
+	</style>
+	<link rel="stylesheet" href="style.css" />
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap.min.js"></script>
+	<script src="script.js"></script>
+	<style>
+		.row {
+			margin-right: 0;
+			margin-left: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<div class="row">
+			<div class="container head-row">
+				<h1 class="logo">Montreal <span style="color:brown;font-size: 40px;">Bakery</span> Store</h1>
+				<ul class="menu">
+					<li><a href="adminhome.html">Home</a></li>
+					<li><a href="customers.html">Customers</a></li>
+					<li><a href="inventory.html"><button>Inventory</button></a></li>
+					<li><a href="bookings.html">Orders</a></li>
+					<li><a href="getfeedbacks.html">Help</a></li>
+					<li><a href="index.html">Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<div class="row">
+		<div class="container" style="padding-top: 50px;height: 700px;">
+			<h2 class="page-heading" style="color:white">Manage Inventory</h2>
+			<div class="col-sm-10 col-sm-offset-1">
+				<button type="button" style="float:right;margin:10px;" onclick='addCake()'><span style="color: white;"
+						class="glyphicon glyphicon-plus"></span> Cake</button>
+
+				<h2 style="color:white">Search Cake</h2>
+				<input class="form-control" id="myInput" type="text" placeholder="Search..">
+				<br>
+
+				<table id="inventory" class="table table-striped table-bordered" style="width:100%">
+					<thead>
+						<tr>
+							<th>Cake Id</th>
+							<th>Photo</th>
+							<th>Category</th>
+							<th>Flavour</th>
+							<th>Color</th>
+							<th>Size</th>
+							<th>Kg</th>
+							<th>price</th>
+							<th>Status</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+
+					<tbody id="cakeData">
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$.get('http://localhost:3000/fetchCakes', (res) => {
+				var tableRows = "";
+				$.each(res.data, function (key, value) {
+					var row = "<tr>" +
+						"<td> " + value.cid + "</td>" +
+						"<td>" + "<img src='" + value.images + "' width='50px' height='50px' />" + "</td>" +
+						"<td>" + value.category + " </td>" +
+						"<td> " + value.flavour + "</td>" +
+						"<td> " + value.color + "</td>" +
+						"<td> " + value.size + "</td>" +
+						"<td> " + value.kg + "</td>" +
+						"<td> " + value.price + "</td>" +
+						"<td> " + value.availability + "</td>" +
+						"<td> " + "<button type='button' onclick='editCake(" + value.cid + ")'><span class='glyphicon glyphicon-edit'></span></button>&nbsp;<button type='button' onclick='deleteCake(" + value.cid + ")'><span class='glyphicon glyphicon-trash'></span></button>" + "</td>";
+
+
+					tableRows = tableRows + row;
+				});
+
+				setTimeout(function () {
+					$("#cakeData").append(tableRows);
+
+				}, 500);
+			});
+		});
+
+
+		function editCake(id) {
+			//	alert(id);
+			window.location.href = "editcake.html?id=" + id;
+		}
+
+
+		function addCake() {
+			window.location.href = "addcake.html";
+		}
+
+		function deleteCake(id) {
+			$.get('http://localhost:3000/deleteCake/' + id, (res) => {
+
+				if (res.status == 200) {
+					alert(res.message);
+					window.location.reload();;
+				}
+				else {
+					alert(res.message);
+				}
+
+			});
+		}
+
+		$(document).ready(function () {
+			$("#myInput").on("keyup", function () {
+				var value = $(this).val().toLowerCase();
+				$("#cakeData tr").filter(function () {
+					$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+				});
+			});
+		});
+
+
+
+	</script>
+</body>
+
+</html>
