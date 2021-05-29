@@ -88,6 +88,8 @@
                     <li><a href="mybookings.html">My Orders</a></li>
                     <li><a href="help.html">Help</a></li>
                     <li><a href="profile.html">Profile</a></li>
+                    <li><a href="addtocart.html"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+
                     <li><a href="index.html">Logout</a></li>
                 </ul>
             </div>
@@ -137,14 +139,46 @@
 
 
 
+            <table>
+                <tr>
+                    <td>
+                        <h2 style="color: white;margin-top: 10px;">Cakes</h2>
+                    </td>
+                    <td style="margin-top: 10px;"><input class="form-control" style="width: 300px;" id="search" type="text"
+                            placeholder="Search By Category or Flavour.."></td>
+                </tr>
+            </table>
 
+
+
+            <br>
             <div class="row" id="cakeData" style="align-content: center;">
-
-
-
             </div>
 
+            <table>
+                <tr>
+                    <td>
+                        <h2 style="color: white;margin-top: 10px;">MilkShakes</h2>
+                    </td>
+                    <td style="margin-top: 10px;"><input class="form-control" id="search1" type="text"
+                            placeholder="Search By Flavour.."></td>
+                </tr>
+            </table>
+            <div class="row" id="shakesData" style="align-content: center;">
+            </div>
 
+            <table>
+                <tr>
+                    <td>
+                        <h2 style="color: white;margin-top: 10px;">Crossaints and Cupcakes</h2>
+                    </td>
+                    <td style="margin-top: 10px;"><input class="form-control" id="search2" type="text"
+                            placeholder="Search By Flavour.."></td>
+                </tr>
+            </table>
+
+            <div class="row" id="crossaintsData" style="align-content: center;">
+            </div>
 
         </div>
     </div>
@@ -213,15 +247,15 @@
             $.get('http://localhost:3000/fetchCakes', (res) => {
                 var tableRows = "";
                 $.each(res.data, function (key, value) {
-                    var row = "<div class='col-sm-3'><div class='jumbotron'>" +
+                    var row = "<div class='col-sm-3 box'><div id='test' class='jumbotron'>" +
 
 
                         "<p>" + "<img src='" + value.images + "' width='100%' height='150px' />" + "</p>" +
-                        "<h5>" + value.category + " </h5>" +
-                        "<h6> " + "Flavour : " + value.flavour + "</h6>" +
+                        "<h5 class='name'>" + value.category + " </h5>" +
+                        "<h6 class='fla'> " + "Flavour : " + value.flavour + "</h6>" +
                         "<h6> " + "Weight : " + value.kg + "</h6>" +
                         "<h6> " + "Price : " + "$" + value.price + " CAD" + "</h6>" +
-                        " <button id='btnBookCar1' type='button' onclick='bookCakefnc(" + value.cid + ")'>Add To Cart</button>" +
+                        " <button id='btnBookCar1' type='button' onclick='bookCakefnc(" + value.cid + ")'>Buy</button>" +
 
 
 
@@ -237,11 +271,107 @@
 
                 }, 500);
             });
+
+            $.get('http://localhost:3000/fetchShakes', (res) => {
+                var tableRows = "";
+                $.each(res.data, function (key, value) {
+                    var row = "<div class='col-sm-3 boxx'><div class='jumbotron'>" +
+
+
+                        "<p>" + "<img src='" + value.photo + "' width='100%' height='150px' />" + "</p>" +
+                        "<h5>" + value.ptype + " </h5>" +
+                        "<h6 class='fla'> " + "Flavour : " + value.flavour + "</h6>" +
+                        "<h6> " + "Size : " + value.size + "</h6>" +
+                        "<h6> " + "Price : " + "$" + value.price + " CAD" + "</h6>" +
+                        " <button id='btnBookCar1' type='button' onclick='bookShakesfnc(" + value.sid + ")'>Buy</button>" +
+
+
+
+
+                        "</div></div>";
+
+
+                    tableRows = tableRows + row;
+                });
+
+                setTimeout(function () {
+                    $("#shakesData").append(tableRows);
+
+                }, 500);
+            });
+
+            $.get('http://localhost:3000/fetchCross', (res) => {
+                var tableRows = "";
+                $.each(res.data, function (key, value) {
+                    var row = "<div class='col-sm-3 boxxx'><div class='jumbotron'>" +
+
+
+                        "<p>" + "<img src='" + value.image + "' width='100%' height='150px' />" + "</p>" +
+                        "<h5>" + value.ptype + " </h5>" +
+                        "<h6 class='fla'> " + "Flavour : " + value.flavour + "</h6>" +
+                        "<h6> " + "Toppings : " + value.toppings + "</h6>" +
+                        "<h6> " + "Price : " + "$" + value.price + " CAD" + "</h6>" +
+                        " <button id='btnBookCar1' type='button' onclick='bookCrossfnc(" + value.c_id + ")'>Buy</button>" +
+
+
+
+
+                        "</div></div>";
+
+
+                    tableRows = tableRows + row;
+                });
+
+                setTimeout(function () {
+                    $("#crossaintsData").append(tableRows);
+
+                }, 500);
+            });
+
+
+
+
+            var $search = $("#search").on('input', function () {
+                // $btns.removeClass('active');
+                var matcher = new RegExp($(this).val(), 'gi');
+                $('.box').show().not(function () {
+                    return matcher.test($(this).find('.name, .fla').text())
+                }).hide();
+            })
+
+            
+            var $search1 = $("#search1").on('input', function () {
+                // $btns.removeClass('active');
+                var matcher = new RegExp($(this).val(), 'gi');
+                $('.boxx').show().not(function () {
+                    return matcher.test($(this).find('.fla').text())
+                }).hide();
+            })
+
+            var $search2 = $("#search2").on('input', function () {
+                // $btns.removeClass('active');
+                var matcher = new RegExp($(this).val(), 'gi');
+                $('.boxxx').show().not(function () {
+                    return matcher.test($(this).find('.fla').text())
+                }).hide();
+            })
+
+            
+
         });
 
         function bookCakefnc(id) {
-            window.location.href = "cart.html?id=" + id;
+            window.location.href = "buy.html?id=" + id;
         }
+
+        function bookShakesfnc(id) {
+            window.location.href = "buyshakes.html?id=" + id;
+        }
+
+        function bookCrossfnc(id) {
+            window.location.href = "buycrossiants.html?id=" + id;
+        }
+
 
         function order() {
             alert("Please Login to Place Order");
@@ -251,11 +381,20 @@
         $(document).ready(function () {
             $("#myInput").on("keyup", function () {
                 var value = $(this).val().toLowerCase();
-                $("#cakeData").filter(function () {
+                $("#cakeData test").filter(function () {
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
         });
+
+
+        // var $search = $("#search").on('input', function () {
+        //     $btns.removeClass('active');
+        //     var matcher = new RegExp($(this).val(), 'gi');
+        //     $('.box').show().not(function () {
+        //         return matcher.test($(this).find('.name, .sku').text())
+        //     }).hide();
+        // })
     </script>
 
     <script type="text/javascript">
@@ -270,7 +409,7 @@
 
             var price = ($('#myRange').val());
 
-          //  alert(price);
+            //  alert(price);
             window.location.href = "search.html?price=" + price;
         });
 

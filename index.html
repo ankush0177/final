@@ -85,11 +85,19 @@
             <input class="form-control" id="myInput" type="text" style="width: 400px;" placeholder="Search..">
 
             <br> -->
-
+            <h2 style="color: white;">Cakes</h2>
             <div class="row" id="cakeData" style="align-content: center;">
 
 
 
+            </div>
+
+            <h2 style="color: white;">MilkShakes</h2>
+            <div class="row" id="shakesData" style="align-content: center;">
+            </div>
+
+            <h2 style="color: white;">Crossaints and Cupcakes</h2>
+            <div class="row" id="crossaintsData" style="align-content: center;">
             </div>
 
 
@@ -178,7 +186,72 @@
 
                 }, 500);
             });
+
+
+            $.get('http://localhost:3000/fetchShakes', (res) => {
+                var tableRows = "";
+                $.each(res.data, function (key, value) {
+                    var row = "<div class='col-sm-3'><div class='jumbotron'>" +
+
+
+                        "<p>" + "<img src='" + value.photo + "' width='100%' height='150px' />" + "</p>" +
+                        "<h5>" + value.ptype + " </h5>" +
+                        "<h6> " + "Flavour : " + value.flavour + "</h6>" +
+                        "<h6> " + "Size : " + value.size + "</h6>" +
+                        "<h6> " + "Price : " + "$" + value.price + " CAD" + "</h6>" +
+                        " <button id='btnBookCar1' type='button' onclick='order()'>Buy</button>" +
+
+
+
+
+                        "</div></div>";
+
+
+                    tableRows = tableRows + row;
+                });
+
+                setTimeout(function () {
+                    $("#shakesData").append(tableRows);
+
+                }, 500);
+            });
+
+            $.get('http://localhost:3000/fetchCross', (res) => {
+                var tableRows = "";
+                $.each(res.data, function (key, value) {
+                    var row = "<div class='col-sm-3'><div class='jumbotron'>" +
+
+
+                        "<p>" + "<img src='" + value.image + "' width='100%' height='150px' />" + "</p>" +
+                        "<h5>" + value.ptype + " </h5>" +
+                        "<h6> " + "Flavour : " + value.flavour + "</h6>" +
+                        "<h6> " + "Toppings : " + value.toppings + "</h6>" +
+                        "<h6> " + "Price : " + "$" + value.price + " CAD" + "</h6>" +
+                        " <button id='btnBookCar1' type='button' onclick='order()'>Buy</button>" +
+
+
+
+
+                        "</div></div>";
+
+
+                    tableRows = tableRows + row;
+                });
+
+                setTimeout(function () {
+                    $("#crossaintsData").append(tableRows);
+
+                }, 500);
+            });
         });
+
+
+
+
+
+
+
+
 
         function order() {
             alert("Please Login to Place Order");

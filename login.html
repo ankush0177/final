@@ -5,14 +5,27 @@
     <title>	Montreal Bakery Store</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+	 -->
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap.min.css"/>
+	<link rel="stylesheet" href="style.css"/>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap.min.js"></script> -->
 
-    <style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+ <style>
         body {
             background: hsla(286, 48%, 91%, 1);
             background: linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
@@ -21,9 +34,9 @@
             filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#EEDDF3", endColorstr="#B4828B", GradientType=1);
         }
     </style> 
-		<script src="script.js"></script>
+	
 		<link rel="stylesheet" href="style.css">
-		
+		<script src="script.js"></script>
 	</head>
 	<body>
 		<header>
@@ -52,7 +65,8 @@
 		</header>
 		<div class="row">
 			<div class="container" style="padding-top: 50px;height: 700px;">
-				<h2 class="page-heading">Customer Login</h2>	
+				<h2 class="page-heading">Customer Login</h2>
+				<form>
 				<div style="text-align:center">	
 					<label>
 						<input type="text" placeholder="Enter Username" id="txtusername" name="email" required>
@@ -61,12 +75,13 @@
 						<input type="password" placeholder="Enter Password" id="txtpassword" name="password" required>
 					</label>
 					<div style="margin-bottom:10px;">
-						<button id="login_customer">Login</button>
+						<button type="submit" id="login_customer">Login</button>
 						</a>
 						<br/>
 						<a href="register.html" style="text-align:center;">Register Here</a>
 					</div>
 				</div>	
+			</form>	
 			</div>
 		</div>
 		<div class="container">
