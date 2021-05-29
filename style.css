@@ -21,6 +21,10 @@ body {
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#EEDDF3", endColorstr="#B4828B", GradientType=1);
 
 }
+
+.form-control {
+width: 200px;
+}
 header {
     padding: 25px;
     text-align: center;
@@ -147,7 +151,7 @@ img.user {
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color:none;
+    background-color:#337ab7;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
@@ -160,7 +164,7 @@ img.user {
     display: block;
   }
   
-  .dropdown-content a:hover {background-color: #337ab7;}
+  .dropdown-content a:hover {background-color: #0d477a;}
   
   .dropdown:hover .dropdown-content {display: block;}
   
@@ -168,7 +172,39 @@ img.user {
 
 
 
-
+  .slidecontainer {
+    width: 100%;
+  }
+  
+  .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    background: #067ee7;
+    outline: none;
+   border-radius: 2px;
+   
+  }
+  
+  .slider:hover {
+    opacity: 1;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 15px;
+    background: #fff;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #fff;
+    cursor: pointer;
+  }
 
 
 
