@@ -13,7 +13,7 @@ app.use(bodyParser.json())
 const dbConn = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'rootroot',
+  password: '',
   database: 'montreal_bakery'
 });
 
@@ -62,15 +62,6 @@ var Help = function (help) {
   this.reply = help.reply;
 };
 
-var Feedback = function (feedback) {
-  this.name = feedback.name;
-  this.email = feedback.email;
-  this.phone = feedback.phone;
-  this.message = feedback.message;
-  this.oid = feedback.oid;
-  this.status = feedback.status;
-};
-
 var Cake = function (cake) {
   this.category = cake.category;
   this.flavour = cake.flavour;
@@ -81,8 +72,7 @@ var Cake = function (cake) {
   this.price = cake.price;
   this.availability = cake.availability;
   this.images = cake.images;
-  this.description = cake.description;
-  this.ptype="Cakes"
+  this.description= cake.description;
 };
 
 var Orders = function (orders) {
@@ -91,15 +81,13 @@ var Orders = function (orders) {
   this.color = orders.color;
   this.size = orders.size;
   this.kg = orders.kg;
-  this.toppings = orders.toppings;
+  this.toppinordersgs = orders.toppings;
   this.price = orders.price;
   this.date = orders.date;
   this.tim = orders.tim;
-  this.quantity = orders.quantity;
+  this.quantity= orders.quantity;
   this.total = orders.total;
-  this.email = orders.email;
-  this.status = orders.status;
-  this.ptype = orders.ptype;
+  this.email= orders.email;
 };
 
 
@@ -166,7 +154,6 @@ app.get('/fetchCakes', (req, res) => {
 });
 
 
-
 app.get('/fetchCakes/:id', (req, res) => {
   dbConn.query("SELECT * FROM cakes where cid = ?", req.params.id, function (err, result) {
     if (err) {
@@ -176,61 +163,6 @@ app.get('/fetchCakes/:id', (req, res) => {
     }
   })
 });
-
-
-
-// get shakes code
-app.get('/fetchShakes', (req, res) => {
-  dbConn.query("SELECT * FROM shakes", function (err, result) {
-    if (err) {
-      res.send({ status: 500, message: "Something went wrong Please try again!!!" });
-    } else {
-      res.send({ status: 200, data: result })
-    }
-  })
-});
-
-
-app.get('/fetchShakes/:id', (req, res) => {
-  dbConn.query("SELECT * FROM shakes where sid = ?", req.params.id, function (err, result) {
-    if (err) {
-      res.send({ status: 500, message: "Please try again" });
-    } else {
-      res.send({ status: 200, data: result })
-    }
-  })
-});
-
-
-
-
-// get crossiants code
-app.get('/fetchCross', (req, res) => {
-  dbConn.query("SELECT * FROM crossaints", function (err, result) {
-    if (err) {
-      res.send({ status: 500, message: "Something went wrong Please try again!!!" });
-    } else {
-      res.send({ status: 200, data: result })
-    }
-  })
-});
-
-
-
-
-app.get('/fetchCross/:id', (req, res) => {
-  dbConn.query("SELECT * FROM crossaints where c_id = ?", req.params.id, function (err, result) {
-    if (err) {
-      res.send({ status: 500, message: "Please try again" });
-    } else {
-      res.send({ status: 200, data: result })
-    }
-  })
-});
-
-
-
-
 
 
 
@@ -248,7 +180,7 @@ app.get('/getAvailableCakes', (req, res) => {
 
 app.post('/fetchCakesss', (req, res) => {
   debugger
-  dbConn.query("SELECT * FROM cakes where category = ?", req.body.cat, function (err, result) {
+  dbConn.query("SELECT * FROM cakes where category = ?",  req.body.cat,  function (err, result) {
     if (err) {
       debugger
       console.log(JSON.stringify(err));
@@ -260,24 +192,6 @@ app.post('/fetchCakesss', (req, res) => {
     }
   })
 });
-
-app.post('/fetchCakesssByPrice', (req, res) => {
-  debugger
-  dbConn.query("SELECT * FROM cakes where price <= ?", req.body.p, function (err, result) {
-    if (err) {
-      debugger
-      console.log(JSON.stringify(err));
-      res.send({ status: 500, message: "Please try again" });
-    } else {
-      console.log(JSON.stringify(result));
-      console.log(JSON.stringify(req.body.cat));
-      res.send({ status: 200, data: result })
-    }
-  })
-});
-
-
-
 
 
 
@@ -347,65 +261,6 @@ app.post('/addBooking', (req, res) => {
 });
 
 
-/// Add Orders Code
-app.post('/addOrder', (req, res) => {
-  console.log("hello world");
- 
-  // console.log((req.body));
-  let data = (req.body);
-  // const orders = new Orders(data[0]);
-  var temp = 0;
-  for (var i = 0; i < data.length; i++) {
-    const orders = new Orders(data[i]);
-    console.log(orders);
-    dbConn.query("INSERT INTO orders set ?", orders, function (err, result) {
-      // dbConn.query("INSERT INTO `orders`(`oid`, `category`, `flavour`, `color`, `size`, `kg`, `toppings`, `price`, `date`, `tim`, `quantity`, `total`, `email`, `status`, `ptype`) VALUES  ?", [test], function (err, result) {
-
-      if (err) {
-        console.log
-        //  res.send({ status: 500, message: "Please try again" });
-      }
-      else {
-        temp++;
-        //  res.send({ status: 200, message: "Order Placed successfully" });
-      }
-    });
-  }
-
-  if (temp == data.length) {
-    res.send({ status: 200, message: "Order Placed successfully" });
-  }
-  else {
-    res.send({ status: 500, message: "Please try again" });
-  }
-
-  // dbConn.query("INSERT INTO orders set ?", data, function (err, result) {
-  //   // dbConn.query("INSERT INTO `orders`(`oid`, `category`, `flavour`, `color`, `size`, `kg`, `toppings`, `price`, `date`, `tim`, `quantity`, `total`, `email`, `status`, `ptype`) VALUES  ?", [test], function (err, result) {
-
-  //   if (err) {
-  //     console.log
-  //     res.send({ status: 500, message: "Please try again" });
-  //   }
-  //   else {
-  //     res.send({ status: 200, message: "Order Placed successfully" });
-  //   }
-  // });
-});
-
-/// Add Feedback Code
-app.post('/addReview', (req, res) => {
-  const feedback = new Feedback(req.body);
-  console.log(feedback);
-  dbConn.query("INSERT INTO feedback set ?", feedback, function (err, result) {
-    if (err) {
-      console.log
-      res.send({ status: 500, message: "Please try again" });
-    }
-    else {
-      res.send({ status: 200, message: "Feedback Submitted successfully" });
-    }
-  });
-});
 
 
 
@@ -447,7 +302,7 @@ app.post('/addCake', (req, res) => {
 app.put('/editCake/:id', (req, res) => {
   const cake = new Cake(req.body);
 
-  dbConn.query("UPDATE cakes set category = ?,flavour = ?,color = ?,size = ?,kg = ?,toppings = ?,price = ?,description=?  where cid = ?", [cake.category, cake.flavour, cake.color, cake.size, cake.kg, cake.toppings, cake.price, cake.description, req.params.id], function (err, result) {
+  dbConn.query("UPDATE cakes set category = ?,flavour = ?,color = ?,size = ?,kg = ?,toppings = ?,price = ?,description=?  where cid = ?", [cake.category, cake.flavour, cake.color, cake.size, cake.kg,cake.toppings,cake.price,cake.description, req.params.id], function (err, result) {
     if (err) {
       console.log
       res.send({ status: 500, message: "Please try again" });
@@ -505,19 +360,6 @@ app.get('/fetchHelp', (req, res) => {
 
 
 
-// Get Manage Help Code
-app.get('/fetchFeedback', (req, res) => {
-  dbConn.query("SELECT * FROM feedback", function (err, result) {
-    if (err) {
-      res.send({ status: 500, message: "Please try again" });
-    } else {
-      res.send({ status: 200, data: result })
-    }
-  })
-})
-
-
-
 app.post('/myProfile', (req, res) => {
   dbConn.query("SELECT * FROM register WHERE id = ?", parseInt(req.body.id), function (err, result) {
     if (err) {
@@ -542,9 +384,9 @@ app.get('/fetchProfile/:id', (req, res) => {
 
 app.put('/editProfile/:id', (req, res) => {
   const user = new Customer(req.body);
-  //user.password = "123";
+  user.password = "123";
   //SELECT `id`, `email`, `pass`, `role`, `name`, `address`, `phone_no`, `license` FROM `user` WHERE 1
-  dbConn.query("UPDATE register set fname = ?,email = ?,pass = ?,address = ?,phone = ?  where id = ?", [user.fname, user.email, user.pass, user.address, user.phone, req.params.id], function (err, result) {
+  dbConn.query("UPDATE register set name = ?,email = ?,pass = ?,address = ?,phone = ?  where id = ?", [user.name, user.email, user.password, user.address, user.phone_no, user.license, req.params.id], function (err, result) {
     if (err) {
       console.log
       res.send({ status: 500, message: "Please try again" });

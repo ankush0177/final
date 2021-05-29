@@ -23,22 +23,6 @@ $(document).ready(function() {
         console.log('Login customer')
         const email = $('#txtusername').val();
         const  password  = $('#txtpassword').val();
-
-
-        if (email == "") {
-            alert("Please Enter Email");
-            return;
-        }
-
-        if (password == "") {
-            alert("Please Enter Password");
-            return;
-        }
-
-
-
-
-
         var user = { "username" : email , "password" : password };
         debugger
         $.post(base_url + login, user, (res) => {
@@ -77,17 +61,6 @@ $(document).ready(function() {
         console.log('Admin Login customer')
         const email  = $('#txtusername_admin').val();
         const  password = $('#txtpassword_admin').val();
-
-        
-        if (email == "") {
-            alert("Please Enter Email");
-            return;
-        }
-
-        if (password == "") {
-            alert("Please Enter Password");
-            return;
-        }
         var user = {
             "username": email,
             "password": password

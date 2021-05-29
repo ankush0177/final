@@ -9,7 +9,6 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 	<style>
@@ -38,22 +37,12 @@
 	<header>
 		<div class="row">
 			<div class="container head-row">
-            <h1 class="logo">
-                    
-                    
-               <!-- Montreal <span style="color:brown;font-size: 40px;">Bakery</span> Store -->
-           
-               <img src="images/logo2.png" />
-           
-           
-           </h1>
-          
-            
-            <ul class="menu">
+				<h1 class="logo">Montreal <span style="color:brown;font-size: 40px;">Bakery</span> Store</h1>
+				<ul class="menu">
 					<li class="active"><a href="adminhome.html">Home</a></li>
 					<li><a href="customers.html">Customers</a></li>
 					<li><a href="inventory.html">Inventory</a></li>
-					<li><a href="bookings.html"><button>Orders</button></a></li><li><a href="feedbacks.html">Feedbacks</a></li>
+					<li><a href="bookings.html"><button>Orders</button></a></li>
 					<li><a href="getfeedbacks.html">Help</a></li>
 					<li><a href="index.html">Logout</a></li>
 				</ul>
@@ -112,7 +101,7 @@
 
                   "<td> " + value.status + "</td>";
                if (value.status == "Order Placed") {
-                  row = row + "<td> " + "<button class='btn btn-default' id='confirmBooking' type='button' onclick='confirmBooking(" + value.oid + ")'>Accept</button>&nbsp;<button class='btn btn-default' id='cancelBooking' type='button'  onclick='cancelBooking(" + value.oid + ")'>Cancel</button>" + "</td>" + "</tr>"
+                  row = row + "<td> " + "<button class='btn btn-default' id='confirmBooking' type='button' onclick='confirmBooking(" + value.oid + ")'>Confirm</button>&nbsp;<button class='btn btn-default' id='cancelBooking' type='button' onclick='cancelBooking(" + value.oid + ")'>Cancel</button>" + "</td>" + "</tr>"
 
                } else if (value.status == "Confirmed" || value.status == "Cancelled" ) {
 
