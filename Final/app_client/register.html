@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title> Montreal Bakery Store</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+	<style>
+		body {
+			background: hsla(286, 48%, 91%, 1);
+			background: linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+			background: -moz-linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+			background: -webkit-linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+			filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#EEDDF3", endColorstr="#B4828B", GradientType=1);
+		}
+	</style>
+	<script src="script.js"></script>
+	<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+	<header>
+		<div class="row">
+			<div class="container head-row">
+				<h1 class="logo">
+
+
+					<!-- Montreal <span style="color:brown;font-size: 40px;">Bakery</span> Store -->
+
+					<img src="images/logo2.png" />
+
+
+				</h1>
+
+
+
+				<ul class="menu">
+					<li class=""><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+
+
+					<li><a href="login.html"><button>Customer</button></a></li>
+					<li><a href="adminlogin.html"><button>Admin</button></a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<div class="row">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-4">
+
+				</div>
+				<div class="col-md-4">
+					<h2 class="page-heading" style="color: white;">Customer Register</h2>
+					<form>
+						<div style="text-align:left">
+							<div class="form-group">
+								<label>Firstname</label>
+								<input type="text" class="txtOnly" class="form-control" id="fname" />
+							</div>
+
+							<div class="form-group">
+								<label>Email</label>
+								<!-- <input type="email" class="form-control" id="email" />
+						 -->
+								<input type="text" placeholder="Sample@gmail.com"
+									pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" id="email" name="email" required>
+
+
+							</div>
+
+							<div class="form-group">
+								<label>Password</label>
+								<input type="password" class="form-control" id="pass" />
+							</div>
+
+							
+
+							<div class="form-group">
+								<label>Address</label>
+								<input type="text" class="form-control" id="address" />
+							</div>
+
+							<div class="form-group">
+								<label>Phone Number</label>
+								<!-- <input type="text" class="form-control" id="phone" /> -->
+
+								<input type="text" maxlength="10" id="phone" name="phone"
+									 class="form-control" placeholder="1234-45-6784"
+									required />
+								&nbsp;<span id="errmsg"></span>
+							</div>
+
+							<div style="margin-bottom:10px;">
+
+								<button type="submit" id="btn_customer_register">Register</button>
+								<a href="login.html"><button type="button">Login</button>
+								</a>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="col-md-4">
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="container">
+
+		<div class="row">
+
+			<div>
+				<hr style="width: 80%;" />
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="container">
+		<div class="row" style="align-content: center;padding-left: 150px;">
+
+
+			<div class="col-lg-2 col-md-2 footer-links">
+				<h4 style="color:white">Links</h4>
+				<ul>
+					<li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
+					<li><i class="bx bx-chevron-right"></i> <a href="about.html">About us</a></li>
+					<li><i class="bx bx-chevron-right"></i> <a href="contact.html">Contact</a></li>
+				</ul>
+			</div>
+
+			<div class="col-lg-4 col-md-4 footer-contact">
+				<h4 style="color:white">Contact Us</h4>
+				<p style="color:white">
+					Quebec City <br />
+					Canada
+					<strong>Phone:</strong> +1 512564123<br>
+					<strong>Email:</strong> bakery@gmail.com<br>
+				</p>
+
+				<a href="https://www.facebook.com/"><i style="font-size:24px" class="fa">&#xf082;</i></a>
+				<a href="https://twitter.com/LOGIN"><i style="font-size:24px" class="fa">&#xf081;</i></a>
+				<a href="https://www.youtube.com/watch?v=MBSp6vWamh4"><i style="font-size:24px"
+						class="fa">&#xf167;</i></a>
+			</div>
+
+			<div class="col-lg-4 col-md-4 footer-info">
+				<h4 style="color:white">About Montreal Bakery Store</h4>
+				<p style="color:white">
+					Montreal Bakery is one of the best cake delivery in Montreal. It is committed to making your
+					special
+					day memorable by bringing zeal and happiness together. They aim to offer hassle-free cake
+					services
+					and their delivery to their customers. It has created an almost infinite range of cake styles
+					that
+					can all be personalised to create a unique centerpiece for any event.
+
+				</p>
+
+			</div>
+
+		</div>
+	</div>
+	<script type="text/javascript">
+
+		$(document).ready(function () {
+			//called when key is pressed in textbox
+			$("#phone").keypress(function (e) {
+				//if the letter is not digit then display error and don't type anything
+				if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+					//display error message
+					$("#errmsg").html("Digits Only").show().fadeOut("slow");
+					return false;
+				}
+			});
+		});
+
+		$('.txtOnly').keypress(function (e) {
+			var regex = new RegExp("^[a-zA-Z]+$");
+			var str = String.fromCharCode(!e.charCode ? e.which : e.charCode);
+			if (regex.test(str)) {
+				return true;
+			}
+			else {
+				e.preventDefault();
+				$('.error').show();
+				$('.error').text('Please Enter Alphabate');
+				return false;
+			}
+		});
+
+		$('#btn_customer_register').click(() => {
+
+			var fname = ($('#fname').val());
+			var email = ($('#email').val());
+			var pass = $('#pass').val();
+			var address = ($('#address').val());
+			var phone = ($('#phone').val());
+
+			if (fname == "") {
+				alert("Please Enter Name");
+				return;
+			}
+
+
+			if (email == "") {
+				alert("Please Enter Email");
+				return;
+			}
+
+
+			$(".error").hide();
+			var hasError = false;
+			var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+
+			var emailaddressVal = $("#email").val();
+			if (emailaddressVal == '') {
+				$("#email").after('<span class="error">Please enter your email address.</span>');
+				hasError = true;
+			}
+
+			else if (!emailReg.test(emailaddressVal)) {
+				$("#email").after('<span class="error">Enter a valid email address.</span>');
+				hasError = true;
+			}
+
+			if (hasError == true) { return false; }
+
+			if (pass == "") {
+				alert("Please Enter Password");
+				return;
+			}
+
+			if (address == "") {
+				alert("Please Enter Address");
+				return;
+			}
+
+			if (phone == "" || phone < 9) {
+				alert("Please Enter Phone Number");
+				return;
+			}
+
+			
+			var validateMobNum = /^\d*(?:\.\d{1,2})?$/;
+			if (validateMobNum.test(phone) && phone.length == 10) {
+				//debugger
+				alert("Successfully Registered");
+			}
+			else {
+				alert("Invalid Mobile Number");
+				return;
+			}
+
+			var data = {
+				"fname": fname,
+				"email": email,
+				"pass": pass,
+				"address": address,
+				"phone": phone
+			};
+
+			$.post('http://localhost:3000/register', data, (res) => {
+
+				if (res != undefined && res.status == 200) {
+					alert("Successfully Registered");
+					// window.location.href = "index.html";
+				}
+				else {
+					alert("Registration Failed. Contact Administrator.");
+				}
+
+			});
+
+		});
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>	Montreal Bakery Store</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+	 -->
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap.min.css"/>
+	<link rel="stylesheet" href="style.css"/>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+	<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap.min.js"></script> -->
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+ <style>
+        body {
+            background: hsla(286, 48%, 91%, 1);
+            background: linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+            background: -moz-linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+            background: -webkit-linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#EEDDF3", endColorstr="#B4828B", GradientType=1);
+        }
+    </style> 
+	
+		<link rel="stylesheet" href="style.css">
+		<script src="script.js"></script>
+	</head>
+	<body>
+		<header>
+			<div class="row">
+				<div class="container head-row">
+					<h1 class="logo">
+                    
+                    
+						<!-- Montreal <span style="color:brown;font-size: 40px;">Bakery</span> Store -->
+					
+						<img src="images/logo2.png" />
+					
+					
+					</h1>
+				   
+					<ul class="menu">
+						<li class=""><a href="index.html">Home</a></li>
+						<li><a href="about.html">About</a></li>
+					
+					 
+						<li><a href="login.html"><button>Customer</button></a></li>
+						<li><a href="adminlogin.html"><button>Admin</button></a></li>
+					</ul>
+				</div>
+			</div>
+		</header>
+		<div class="row">
+			<div class="container" style="padding-top: 50px;height: 700px;">
+				<h2 class="page-heading">Customer Login</h2>
+				<form>
+				<div style="text-align:center">	
+					<label>
+						<input type="text" placeholder="Sample@gmail.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" id="txtusername" name="email" required>
+					</label>
+					<label>
+						<input type="password" placeholder="Enter Password" id="txtpassword" name="password" required>
+					</label>
+					<div style="margin-bottom:10px;">
+						<button type="submit" id="login_customer">Login</button>
+						</a>
+						<br/>
+						<a href="register.html" style="text-align:center;">Register Here</a>
+					</div>
+				</div>	
+			</form>	
+			</div>
+		</div>
+		<div class="container">
+
+			<div class="row">
+	  
+				<div>
+					<hr style="width: 80%;" />
+				</div>
+			</div>
+		</div>
+	  
+	  
+	  
+		<div class="container">
+			<div class="row" style="align-content: center;padding-left: 150px;">
+	  
+	  
+				<div class="col-lg-2 col-md-2 footer-links">
+					<h4 style="color:white">Links</h4>
+					<ul>
+						<li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
+						<li><i class="bx bx-chevron-right"></i> <a href="about.html">About us</a></li>
+						<li><i class="bx bx-chevron-right"></i> <a href="contact.html">Contact</a></li>
+					</ul>
+				</div>
+	  
+				<div class="col-lg-4 col-md-4 footer-contact">
+					<h4 style="color:white">Contact Us</h4>
+					<p style="color:white">
+						Quebec City <br />
+						Canada
+						<strong>Phone:</strong> +1 512564123<br>
+						<strong>Email:</strong> bakery@gmail.com<br>
+					</p>
+	  
+					<a href="https://www.facebook.com/"><i style="font-size:24px" class="fa">&#xf082;</i></a>
+					<a href="https://twitter.com/LOGIN"><i style="font-size:24px" class="fa">&#xf081;</i></a>
+					<a href="https://www.youtube.com/watch?v=MBSp6vWamh4"><i style="font-size:24px"
+							class="fa">&#xf167;</i></a>
+				</div>
+	  
+				<div class="col-lg-4 col-md-4 footer-info">
+					<h4 style="color:white">About Montreal Bakery Store</h4>
+					<p style="color:white">
+						Montreal Bakery is one of the best cake delivery in Montreal. It is committed to making your
+						special
+						day memorable by bringing zeal and happiness together. They aim to offer hassle-free cake
+						services
+						and their delivery to their customers. It has created an almost infinite range of cake styles
+						that
+						can all be personalised to create a unique centerpiece for any event.
+	  
+					</p>
+	  
+				</div>
+	  
+			</div>
+		</div>
+	</body>
+</html>
+

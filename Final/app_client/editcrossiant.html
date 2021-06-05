@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Montreal Bakery Store</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <style>
+        body {
+            background: hsla(286, 48%, 91%, 1);
+            background: linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+            background: -moz-linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+            background: -webkit-linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#EEDDF3", endColorstr="#B4828B", GradientType=1);
+        }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <style>
+        .row {
+            margin-right: 0;
+            margin-left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="row">
+            <div class="container head-row">
+                <h1 class="logo">
+                    
+                    
+                    <!-- Montreal <span style="color:brown;font-size: 40px;">Bakery</span> Store -->
+                
+                    <img src="images/logo2.png" />
+                
+                
+                </h1>
+               
+               
+                <ul class="menu">
+                    <li><a href="adminhome.html">Home</a></li>
+                    <li><a href="customers.html">Customers</a></li>
+                    <li><a href="inventory.html">Inventory</a></li>
+                    <li><a href="getfeedbacks.html">Orders</a></li>
+                    <li><a href="getfeedbacks.html">Help</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="row">
+        <div class="container" style="padding-top: 50px;height: 700px;">
+            <div class="row">
+                <div class="col-md-3">
+
+                </div>
+                <div class="col-md-6 text-align:center">
+                    <h2 class="page-heading" style="color: white;">Edit Crossiant Information</h2>
+                    <table align="center">
+                        <tr>
+                            <td>
+                               
+                                <div class="form-group">
+                                    <label>Flavour</label>
+                                    <select class="form-control" id="flavour">
+                                        <option>Nuetella</option>
+                                        <option>Peanut Butter</option>
+                                        <option>Apples</option>
+                                        <option>Chocolate</option>
+                             
+
+                                    </select>
+
+                                </div>
+                               
+                            
+                              
+                                <div class="form-group">
+                                    <label>Toppings</label>
+                                    <select class="form-control" id="toppings">
+                                        <option>Cookies</option>
+                                        <option>Nuts</option>
+                                        <option>Fresh Fruits </option>
+                                    </select>
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Price</label>
+                                    <input type="text" id="price">
+
+                                </div>
+
+                              
+                                <div style="margin-bottom:10px;">
+                                    <button type="submit" id="btn_editCross">Submit</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+                <div class="col-md-3">
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <script type="text/javascript">
+        $.get('http://localhost:3000/fetchCross/' + getUrlVars()["id"], (res) => {
+          
+            $('#flavour').val(res.data[0].flavour);
+            $('#size').val(res.data[0].size);
+            $('#toppings').val(res.data[0].toppings);
+            $('#price').val(res.data[0].price);
+    
+        });
+
+
+
+        $('#btn_editCross').click(() => {
+     
+            var flavour = $('#flavour').val();
+            var toppings = $('#toppings').val();
+            var price = $('#price').val();
+
+            var data = {
+             
+                "flavour": flavour,
+                "toppings": toppings,
+                "price": price
+              
+            };
+
+
+
+            $.ajax({
+                url: 'http://localhost:3000/editCross/' + getUrlVars()["id"],
+                type: 'PUT',
+                data: data,
+                success: function (res) {
+
+                    if (res != undefined && res.status == 200) {
+                        alert("Successfully Edited");
+                    }
+                    else {
+                        alert("Failed to Edit Crossiant. Contact Administrator.");
+                    }
+                }
+            });
+
+        });
+
+
+        function getUrlVars() {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Montreal Bakery Store</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.js"></script>
+    <style>
+        body {
+            background: hsla(286, 48%, 91%, 1);
+            background: linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+            background: -moz-linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+            background: -webkit-linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#EEDDF3", endColorstr="#B4828B", GradientType=1);
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap.min.js"></script>
+
+
+    <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" rel="Stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="script.js"></script>
+    <style>
+        .row {
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        .jumbotron {
+            padding-top: 18px;
+            padding-bottom: 18px;
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+
+        .container .jumbotron {
+            padding-right: 20px;
+            padding-left: 30px;
+        }
+
+        td {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="row">
+            <div class="container head-row">
+                <h1 class="logo">
+
+
+                    <!-- Montreal <span style="color:brown;font-size: 40px;">Bakery</span> Store -->
+
+                    <img src="images/logo2.png" />
+
+
+                </h1>
+
+
+                <ul class="menu">
+                    <li class=""><a href="home.html">Home</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a>Galleries</a>
+                            <div class="dropdown-content">
+                                <a href="types.html?cat=Birthdays">Birthdays</a>
+                                <a href="types.html?cat=Weddings">Weddings</a>
+                                <a href="types.html?cat=Festivals">Festivals</a>
+                                <a href="types.html?cat=Anniversaries">Anniversaries</a>
+                                <a href="types.html?cat=NewYear">New Year</a>
+                                <a href="types.html?cat=CupCakes">Cup Cakes</a>
+                                <a href="types.html?cat=Crossaints">Crossaints</a>
+                                <a href="types.html?cat=MilkShakes">MilkShakes</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="mybookings.html">My Orders</a></li>
+                    <li><a href="help.html">Help</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="container" style="padding-top: 20px;height: 700px;">
+
+        <div class="row">
+
+
+
+            <div class="container">
+                <h2 class="page-heading" style="color: white;">Cart Items<br />
+
+
+                </h2>
+
+                <div class="col-sm-10 col-sm-offset-1">
+
+                    <table>
+                        <tr style="padding: 10px;">
+                            <td>
+                                <img src="images/1.jpg" id="images" style="width: 100%;height: 400px;" />
+                            </td>
+                            <td style="padding: 10px;">
+                                <table align="center">
+                                    <tr>
+                                     
+                         
+                                        
+                                        <div class="form-group">
+                                            <label>Flavour</label>
+                                            <select class="form-control" id="flavour">
+                                                <option>Nuetella</option>
+                                                <option>Peanut Butter</option>
+                                                <option>Apples</option>
+                                                <option>Chocolate</option>
+                                     
+
+                                            </select>
+
+                                        </div>
+                            </td>
+
+                        </tr>
+                        <tr>
+                          
+
+                            <td>
+                                <div class="form-group">
+                                    <label>Toppings</label>
+                                    <select class="form-control" id="toppings">
+                                        <option>Cookies</option>
+                                  
+                                        <option>Nuts</option>
+                                        <option>Fresh Fruits </option>
+
+                                      
+
+                                    </select>
+
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <label>Price</label>
+                                    <input type="text" id="price" readonly>
+
+                                </div>
+
+
+
+                                <div class="form-group" hidden>
+                                    <label>Descriptiom</label>
+                                    <textarea id="description" class="form-control">
+
+                                                    </textarea>
+                                    <!-- <input type="text" > -->
+
+                                </div>
+
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                    <label>Date</label>
+
+                                    <input type="text" id="txtdate" class="form-control" autocomplete="off" required>
+
+
+
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <label>Time</label>
+                                    <select class="form-control" id="tim">
+                                        <option>10AM</option>
+                                        <option>11AM</option>
+                                        <option>12PM</option>
+                                        <option>1AM</option>
+                                        <option>2PM</option>
+
+                                    </select>
+
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <label>Quantity</label>
+                                    <select class="form-control" id="quantity">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+
+                                    </select>
+
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Total Amount : <input type="text" id="price1" readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="margin-bottom:10px;">
+                                    <button type="submit" id="btn_addToCart">Add To Cart</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </table>
+                    </td>
+                    </tr>
+                    </table>
+
+
+
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="row">
+
+            <div>
+                <hr style="width: 80%;" />
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row" style="align-content: center;padding-left: 150px;">
+
+
+            <div class="col-lg-2 col-md-2 footer-links">
+                <h4 style="color:white">Links</h4>
+                <ul>
+                    <li><i class="bx bx-chevron-right"></i> <a href="index.html">Home</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="about.html">About us</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-4 col-md-4 footer-contact">
+                <h4 style="color:white">Contact Us</h4>
+                <p style="color:white">
+                    Quebec City <br />
+                    Canada
+                    <strong>Phone:</strong> +1 512564123<br>
+                    <strong>Email:</strong> bakery@gmail.com<br>
+                </p>
+
+                <a href="https://www.facebook.com/"><i style="font-size:24px" class="fa">&#xf082;</i></a>
+                <a href="https://twitter.com/LOGIN"><i style="font-size:24px" class="fa">&#xf081;</i></a>
+                <a href="https://www.youtube.com/watch?v=MBSp6vWamh4"><i style="font-size:24px"
+                        class="fa">&#xf167;</i></a>
+            </div>
+
+            <div class="col-lg-4 col-md-4 footer-info">
+                <h4 style="color:white">About Montreal Bakery Store</h4>
+                <p style="color:white">
+                    Montreal Bakery is one of the best cake delivery in Montreal. It is committed to making your
+                    special
+                    day memorable by bringing zeal and happiness together. They aim to offer hassle-free cake
+                    services
+                    and their delivery to their customers. It has created an almost infinite range of cake styles
+                    that
+                    can all be personalised to create a unique centerpiece for any event.
+
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+
+
+        $("#btn_addToCart").click(function () {
+
+
+        
+            var flavour = $('#flavour').val();
+       
+            var size = $('#size').val();
+     
+            var toppings = $('#toppings').val();
+            var price = $('#price').val();
+            var date = $('#txtdate').val();
+
+            if (date == "") {
+                alert("Please check Date");
+                return;
+            }
+
+            var tim = $('#tim').val();
+            var quantity = $('#quantity').val();
+            var total = $('#price1').val();
+            var email = localStorage.getItem("username");
+            var status = "Order Placed";
+
+            var data = {
+              
+                "category": "None",
+                "flavour": flavour,
+                "color":  "None",
+                "size": "None",
+                "kg":  "None",
+                "toppings": toppings,
+                "price": price,
+                "date": date,
+                "tim": tim,
+                "quantity": quantity,
+                "total": total,
+                "email": email,
+                "status": status,
+                "ptype": "Crossiants"
+            };
+
+
+
+            var retrievedObject = localStorage.getItem('added-items');
+
+            if (retrievedObject == null) {
+                debugger
+                //  var cartItems={};
+                var arrayData = [data];
+                // cartItems.items=arrayData;
+                localStorage.setItem('added-items', JSON.stringify(arrayData));
+                window.location.href = "addtocart.html";
+                console.log("ravi");
+            }
+            else {
+
+                var parsedObject = JSON.parse(retrievedObject);
+                console.log(typeof (parsedObject));
+                parsedObject.push(data);
+                // var string = '{"items":[{"Desc":"Item1"},{"Desc":"Item2"}]}';
+                localStorage.setItem('added-items', JSON.stringify(parsedObject));
+                window.location.href = "addtocart.html";
+                console.log("kruthik");
+
+            }
+
+        });
+
+
+
+        $("#btn_confirm1").click(function () {
+
+            var date = $('#txtdate').val();
+            if (date == "") {
+                debugger
+                alert("Please Select Date");
+                // $("#myModal").modal('toggle');
+                $('#myModal').modal('hide');
+            }
+            else {
+                $('#myModal').modal('show');
+                //  $('#myModal').modal('hide');
+
+
+            }
+            debugger
+            var price = $('#price1').val();
+            // alert(price)
+            $('#total').val("Total Amount : " + price);
+        });
+
+
+        function order() {
+
+            var price = $('#price1').val();
+
+            $('#total').val("Total Amount : " + price);
+            // alert(p*q);
+
+        }
+
+
+        $('#btn_confirm123').click(() => {
+
+            var category = $('#category').val();
+            var flavour = $('#flavour').val();
+            var color = $('#color').val();
+            var size = $('#size').val();
+            var kg = $('#kg').val();
+            var toppings = $('#toppings').val();
+            var price = $('#price').val();
+            var date = $('#txtdate').val();
+            var tim = $('#tim').val();
+            var quantity = $('#quantity').val();
+            var total = $('#price1').val();
+            var email = localStorage.getItem("username");
+            var status = "Order Placed";
+
+            // alert(email);
+
+
+            var data = {
+                "category": category,
+                "flavour": flavour,
+                "color": color,
+                "size": size,
+                "kg": kg,
+                "toppings": toppings,
+                "price": price,
+                "date": date,
+                "tim": tim,
+                "quantity": quantity,
+                "total": total,
+                "email": email,
+                "status": status
+            };
+
+            console.log(data);
+            debugger
+            $.post('http://localhost:3000/addOrder', data, (res) => {
+
+                if (res != undefined && res.status == 200) {
+                    // alert("Successfully Added");
+                    window.location.href = "success.html";
+                }
+                else {
+                    alert("Failed to Add Cake. Contact Administrator.");
+                }
+
+            });
+
+        });
+
+        $.get('http://localhost:3000/fetchCross/' + getUrlVars()["id"], (res) => {
+
+            $('#images').attr('src', res.data[0].image);  
+            $('#flavour').val(res.data[0].flavour);   
+            $('#toppings').val(res.data[0].toppings);
+            $('#price').val(res.data[0].price);
+            $('#price1').val(res.data[0].price);
+       
+
+        });
+
+
+        $('#quantity').change(function () {
+            var q = $(this).val();
+            var p = $('#price').val();
+  
+      
+
+            $('#price1').val(p * q);
+            // alert(p*q);
+        });
+
+
+
+
+
+
+        function getUrlVars() {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        }
+
+        $(document).ready(function () {
+            $("#txtdate").datepicker({
+                minDate: 0
+            });
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>

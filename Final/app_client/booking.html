@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Montreal Bakery Store</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <style>
+        body {
+            background: hsla(286, 48%, 91%, 1);
+            background: linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+            background: -moz-linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+            background: -webkit-linear-gradient(90deg, hsla(286, 48%, 91%, 1) 0%, hsla(349, 25%, 61%, 1) 0%, hsla(247, 17%, 39%, 1) 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#EEDDF3", endColorstr="#B4828B", GradientType=1);
+        }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <style>
+        .row {
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+        .jumbotron {
+            padding-top: 18px;
+            padding-bottom: 18px;
+            padding-right: 20px;
+            padding-left: 20px;
+        }
+
+        .container .jumbotron {
+            padding-right: 20px;
+            padding-left: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="row">
+            <div class="container head-row">
+                <h1 class="logo">
+                    
+                    
+                    <!-- Montreal <span style="color:brown;font-size: 40px;">Bakery</span> Store -->
+                
+                    <img src="images/logo2.png" />
+                
+                
+                </h1>
+               
+                <ul class="menu">
+                    <li class=""><a href="home.html">Home</a></li>
+                    <li><a href="#">Galleries</a></li>
+                    <li><a href="#">My Orders</a></li>
+                    <li><a href="help.html">Help</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="index.html">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+	<div class="row">
+    <div class="container" style="padding-top: 20px;height: 700px;">
+		
+				<h2 class="page-heading" style="color: white;">Order Cake</h2>
+						    
+					<label>
+						<input type="date" id="start_date">
+					</label>
+					<label>
+						<input type="date" id="end_date">
+					</label>
+					<label>
+						<select id="carDP" class="form-control">
+							<option value="0">-- Select --</option>
+						</select>
+					</label>
+				
+					<div style="margin-bottom:10px;">
+						<button type="submit"id="btn_book_car">Request to Book a Car</button>
+					</div>
+			</div>
+		</div>  
+      <script type="text/javascript">
+        $(document).ready(function() {
+				$.get('http://localhost:3000/getAvailableCars', (res) => {
+					var tableRows = "";
+					$.each(res.data, function(key, value) {
+					  $('#carDP').append('<option value="' + value.car_id + '">' + value.make + " - " + value.model + " - " + value.year  + '</option>');
+					});
+				});					
+		}); 
+
+
+        
+
+
+
+		 $('#btn_book_car').click(() => { 
+		   
+			  var start_date = new Date($('#start_date').val());
+			  var end_date = new Date($('#end_date').val());
+			  var carDP = $('#carDP').val();
+			//   alert(start_date);
+		    //   alert(end_date);
+			//   alert(carDP);
+			  
+			  if(carDP != undefined && carDP != "0")
+			  {
+			 
+					var data = {
+							"start_date" : start_date,
+							"end_date"   : end_date,
+							"car_id" : parseInt(carDP),
+							"cust_id" : localStorage.getItem('cid'),
+							"bookingstatus" : "Requested"
+						};
+						
+					  $.post('http://localhost:3000/addBooking', data, (res) => { 
+					   
+					      if(res != undefined && res.status == 200)
+						  {
+						     alert("Successfully Booked");
+						  }
+						  else{
+						   alert("Failed to Booked Car. Contact Administrator.");
+						  }
+					  
+					  });
+			  
+			   }
+		 
+		 });
+
+		
+      </script>
+   </body>
+</html>
